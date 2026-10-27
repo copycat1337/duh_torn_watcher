@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Torn Alerts Suite",
+  "version": "2.0.0",
+  "description": "Modular mug + drug watch for Torn.",
+
+  "permissions": ["storage", "alarms", "notifications", "tabs"],
+  "host_permissions": [
+    "https://api.torn.com/*",
+    "https://www.torn.com/*",
+    "https://weav3r.dev/*"
+  ],
+
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.torn.com/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+
+  "options_page": "options/options.html",
+
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/icons/*.png",
+        "shared/*.js",
+        "modules/*/*.js"
+      ],
+      "matches": ["https://www.torn.com/*"]
+    }
+  ]
+}

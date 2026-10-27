@@ -1,0 +1,32 @@
+Torn Alerts Suite - Shoplifting Watch add-on (2026-10-27)
+
+INSTALL:
+1. Back up your unpacked extension folder first.
+2. Copy the background/, modules/, popup/ folders in this ZIP into the extension root,
+   merging directories and replacing only matching files.
+3. In chrome://extensions/ click Reload on Torn Alerts Suite.
+4. Close/reopen Torn tabs so the updated extension has a clean context.
+5. Check console under the extension Service Worker for [shoplifting] logs.
+
+FEATURES:
+- Pharmacy, Cyber Force, Jewelry Store and Big Al's Gun Shop only.
+- Separate alerts for each security system becoming disabled, plus a second
+  'ALL security disabled' alert when a shop becomes fully disabled.
+- Checks from the background worker once per minute. Opening multiple Torn
+  tabs does not multiply Shoplifting Watch polls.
+- Saved history in the popup under a new Shop tab; clicking any Shop alert opens
+  Torn's Shoplifting page. Windows notification click also opens that page.
+- First successful check establishes baseline and produces no alerts.
+- The watcher uses the existing configured Torn API key (public scope sufficient).
+- To disable monitoring from Chrome extension service-worker console, run:
+    chrome.storage.local.set({shopliftingWatchEnabled:false})
+  Re-enable with true. Defaults to enabled.
+
+IMPORTANT:
+- Package is a PATCH, not a standalone extension. Keep your manifest and other files.
+- Based on the previously uploaded service-worker.js and clickable Bazaar popup.js.
+  If you made subsequent changes, merge rather than blindly replace.
+- Shop names are identified using their distinct security signatures as documented
+  by Torn; if Torn changes these layouts, the module logs a warning instead of
+  incorrectly alerting on some other shop.
+- Tested for JS syntax, not against a live authenticated Torn account.

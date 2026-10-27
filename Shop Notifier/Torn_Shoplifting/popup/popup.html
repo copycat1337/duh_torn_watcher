@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Torn Alerts Suite</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <header class="header">
+        <h1>
+            <img src="../assets/icons/icon48.png" alt="" class="brand-icon">
+            Torn Alerts
+        </h1>
+        <div class="head-actions">
+            <button id="mark-all" class="mini" title="Mark all read">✓ All</button>
+            <button id="clear-all" class="mini danger" title="Clear all alerts">🗑</button>
+            <button id="open-options" class="mini" title="Open options">⚙</button>
+        </div>
+    </header>
+
+    <div class="filter-row">
+        <button class="filter-btn active" data-filter="all">All <span class="tab-count" id="count-all"></span></button>
+        <button class="filter-btn" data-filter="mug">🥊 Mug <span class="tab-count" id="count-mug"></span></button>
+        <button class="filter-btn" data-filter="drug">💊 Drug <span class="tab-count" id="count-drug"></span></button>
+        <button class="filter-btn" data-filter="bazaar">🏪 Bazaar <span class="tab-count" id="count-bazaar"></span></button>
+        <button class="filter-btn" data-filter="shop">🔓 Shop <span class="tab-count" id="count-shop"></span></button>
+        <span class="spacer"></span>
+        <button id="recheck" class="mini" title="Re-check now">🔁</button>
+    </div>
+
+    <div id="alert-list" class="alert-list">
+        <div class="alert-empty">Loading…</div>
+    </div>
+
+    <div id="feedback" class="feedback"></div>
+
+    <script type="module" src="popup.js"></script>
+</body>
+</html>
